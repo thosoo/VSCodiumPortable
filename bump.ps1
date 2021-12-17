@@ -8,7 +8,7 @@ $repoName = "VSCodium/vscodium"
 $releasesUri = "https://api.github.com/repos/$repoName/releases/latest"
 $tag = (Invoke-WebRequest $releasesUri | ConvertFrom-Json).tag_name
 $appinfo = Get-IniContent ".\VSCodiumPortable\App\AppInfo\appinfo.ini"
-$appinfo["Version"]["PackageVersion"]=$tag
+$appinfo["Version"]["PackageVersion"]=-join($tag,".0")
 $appinfo["Version"]["DisplayVersion"]=$tag
 $appinfo | Out-IniFile -Force -FilePath ".\VSCodiumPortable\App\AppInfo\appinfo.ini"
 
