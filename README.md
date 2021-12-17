@@ -50,6 +50,6 @@ is packaged in an installer, complete zip file and always download the last vers
 ## License
 
 *	VSCodium Portable released with the [MIT license](https://raw.githubusercontent.com/thosoo/VSCodiumPortable/master/LICENSE).
-*	PortableApps.com Launcher released with the [GPL v2.0 license](https://raw.githubusercontent.com/Makazzz/VSCodiumPortable/master/VSCodiumPortable/Other/Source/LauncherLicense.txt).
+*	PortableApps.com Launcher released with the [GPL v2.0 license](https://raw.githubusercontent.com/thosoo/VSCodiumPortable/master/VSCodiumPortable/Other/Source/LauncherLicense.txt).
 *	VSCodium released with the [MIT license](https://raw.githubusercontent.com/VSCodium/vscodium/master/LICENSE).
 *	Visual Studio Code released with the [MIT license](https://raw.githubusercontent.com/microsoft/vscode/master/LICENSE.txt).
