@@ -10,3 +10,7 @@ Work
 
 # Ignore log
 pac_installer_log.ini
+
+# Ignore installer
+VSCodiumPortable/Other/Source/PortableApps.comInstaller*
+*.paf.exe
