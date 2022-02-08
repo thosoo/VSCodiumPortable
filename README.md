@@ -5,11 +5,11 @@
 # VSCodium Portable<a href="https://portableapps.com/"><img src="https://cdn2.portableapps.com/portableapps.com_1546.png" width="309" height="45" alt="PortableApps.com - Your Digital Life, Anywhere" title="PortableApps.com - Your Digital Life, Anywhere" align="right"></a>
 
 <p align="center">
-	<a href="https://github.com/Makazzz/VSCodiumPortable/releases/latest"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Makazzz/VSCodiumPortable?color=0cf&logo=Visual%20Studio%20Code"></a>
-	<a href="https://github.com/Makazzz/VSCodiumPortable/releases/latest"><img alt="GitHub Releases" src="https://img.shields.io/github/downloads/Makazzz/VSCodiumPortable/latest/total?color=blue"></a>
-	<a href="https://github.com/Makazzz/VSCodiumPortable/releases"><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Makazzz/VSCodiumPortable/total?color=0cf"></a>
-	<a href="https://github.com/Makazzz/VSCodiumPortable"><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Makazzz/VSCodiumPortable?color=blue"></a>
-	<a href="https://raw.githubusercontent.com/Makazzz/VSCodiumPortable/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/Makazzz/VSCodiumPortable?color=0cf"></a>
+	<a href="https://github.com/thosoo/VSCodiumPortable/releases/latest"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/thosoo/VSCodiumPortable?color=0cf&logo=Visual%20Studio%20Code"></a>
+	<a href="https://github.com/thosoo/VSCodiumPortable/releases/latest"><img alt="GitHub Releases" src="https://img.shields.io/github/downloads/thosoo/VSCodiumPortable/latest/total?color=blue"></a>
+	<a href="https://github.com/thosoo/VSCodiumPortable/releases"><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/thosoo/VSCodiumPortable/total?color=0cf"></a>
+	<a href="https://github.com/thosoo/VSCodiumPortable"><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/thosoo/VSCodiumPortable?color=blue"></a>
+	<a href="https://raw.githubusercontent.com/thosoo/VSCodiumPortable/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/thosoo/VSCodiumPortable?color=0cf"></a>
 </p>
 
 VSCodium is a code editor redefined and optimized for building and debugging modern web and cloud applications with binary releases of VS Code without MS branding/telemetry/licensing.
@@ -25,8 +25,8 @@ Download [the latest version of the installer][D1].
 All other downloads are available [in the Releases section][D2]. VSCodium Portable
 is packaged in an installer, complete zip file and always download the last version of VSCodium.
 
-[D1]: https://github.com/Makazzz/VSCodiumPortable/releases/latest
-[D2]: https://github.com/Makazzz/VSCodiumPortable/releases
+[D1]: https://github.com/thosoo/VSCodiumPortable/releases/latest
+[D2]: https://github.com/thosoo/VSCodiumPortable/releases
 
 ## Features
 
@@ -49,7 +49,7 @@ is packaged in an installer, complete zip file and always download the last vers
 
 ## License
 
-*	VSCodium Portable released with the [MIT license](https://raw.githubusercontent.com/Makazzz/VSCodiumPortable/master/LICENSE).
-*	PortableApps.com Launcher released with the [GPL v2.0 license](https://raw.githubusercontent.com/Makazzz/VSCodiumPortable/master/VSCodiumPortable/Other/Source/LauncherLicense.txt).
+*	VSCodium Portable released with the [MIT license](https://raw.githubusercontent.com/thosoo/VSCodiumPortable/master/LICENSE).
+*	PortableApps.com Launcher released with the [GPL v2.0 license](https://raw.githubusercontent.com/thosoo/VSCodiumPortable/master/VSCodiumPortable/Other/Source/LauncherLicense.txt).
 *	VSCodium released with the [MIT license](https://raw.githubusercontent.com/VSCodium/vscodium/master/LICENSE).
 *	Visual Studio Code released with the [MIT license](https://raw.githubusercontent.com/microsoft/vscode/master/LICENSE.txt).
