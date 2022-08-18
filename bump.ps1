@@ -7,6 +7,7 @@ try {
 $repoName = "VSCodium/vscodium"
 $releasesUri = "https://api.github.com/repos/$repoName/releases/latest"
 $tag = (Invoke-WebRequest $releasesUri | ConvertFrom-Json).tag_name
+echo "UPSTREAM_TAG="+$tag | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
 
 $appinfo = Get-IniContent ".\VSCodiumPortable\App\AppInfo\appinfo.ini"
 if ($appinfo["Version"]["DisplayVersion"] -ne $tag)
