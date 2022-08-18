@@ -32,41 +32,28 @@ jobs:
      - name: Run build script Update.ps1
        run: pwsh -ExecutionPolicy ByPass -File Build.ps1
        timeout-minutes: 10
-
-#     - name: Collect logs on failure
-#       if: failure()
-#       shell: bash
-#       run: |
-#         mkdir ../artifacts
-#         cp ../PortableApps.com*/Data/*Log.txt ../artifacts
-#        
-#     - name: Upload artifacts on failure
-#       if: failure()
-#       uses: actions/upload-artifact@v1.0.0
-#       with:
-#         name: logs.zip
-#         path: ../artifacts
-# 
-#     - name: Set Tag Output
-#       id: set-tag
-#       run:  echo "::set-output name=tag_name::$(pwsh -ExecutionPolicy ByPass -File get-tag.ps1)"
-#       
-#     - name: Create Tag
-#       uses: actions/github-script@v3
-#       env:
-#          TAG: ${{ steps.set-tag.outputs.tag_name }}
-#       with:
-#          github-token: ${{ github.token }}
-#          script: |
-#            github.git.createRef({
-#              owner: context.repo.owner,
-#              repo: context.repo.repo,
-#             ref: "refs/tags/${{ steps.set-tag.outputs.tag_name }}",
-#              sha: context.sha
-#            })
-#            
-#     - name: Create release
-#       uses: ncipollo/release-action@v1
-#       with:
-#        tag: ${{ steps.set-tag.outputs.tag_name }}
-#        token: ${{ secrets.GITHUB_TOKEN }}
+ 
+     - name: Set Tag Output
+       id: set-tag
+       run:  echo "::set-output name=tag_name::$(pwsh -ExecutionPolicy ByPass -File get-tag.ps1)"
+       
+     - name: Create Tag
+       uses: actions/github-script@v3
+       env:
+          TAG: ${{ steps.set-tag.outputs.tag_name }}
+       with:
+          github-token: ${{ github.token }}
+          script: |
+            github.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: "refs/tags/${{ steps.set-tag.outputs.tag_name }}",
+              sha: context.sha
+            })
+            
+     - name: Create release
+       uses: ncipollo/release-action@v1
+       with:
+        artifacts: '*.paf.exe'
+        tag: ${{ steps.set-tag.outputs.tag_name }}
+        token: ${{ secrets.GITHUB_TOKEN }}
