@@ -42,7 +42,7 @@ jobs:
        run:  echo "::set-output name=tag_name::$(pwsh -ExecutionPolicy ByPass -File get-tag.ps1)"
      
      - name: Create Tag using upstream Tag
-       if: ${{ steps.local-tag.outputs.tag_name }} != ${{ steps.upstream-tag.outputs.tag_name }}
+       if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
        uses: actions/github-script@v3
        env:
           TAG: ${{ steps.upstream-tag.outputs.tag_name }}
@@ -57,7 +57,7 @@ jobs:
             })
             
      - name: Create release
-       if: ${{ steps.local-tag.outputs.tag_name }} != ${{ steps.upstream-tag.outputs.tag_name }}
+       if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
        uses: ncipollo/release-action@v1
        with:
         artifacts: '*.paf.exe'
