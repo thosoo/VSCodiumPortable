@@ -12,27 +12,6 @@ jobs:
     runs-on: windows-latest
 
     steps:
-     - name: Checkout Code
-       uses: actions/checkout@v2
-       
-     - name: Clone PortableApps.comInstaller
-       uses: actions/checkout@v2
-       with:
-        repository: uroesch/PortableApps.comInstaller
-        ref: master
-        path: PortableApps.comInstaller
-
-     - name: Clone PortableApps.comLauncher
-       uses: actions/checkout@v2
-       with:
-          repository: uroesch/PortableApps.comLauncher
-          ref: patched
-          path: PortableApps.comLauncher
-
-     - name: Run build script Update.ps1
-       run: pwsh -ExecutionPolicy ByPass -File Build.ps1
-       timeout-minutes: 10
- 
      - name: Get current upstream Tag
        id: upstream-tag
        run:  echo "::set-output name=tag_name::$(pwsh -ExecutionPolicy ByPass -File get-sourcetag.ps1)"
@@ -40,6 +19,31 @@ jobs:
      - name: Get current local Tag
        id: local-tag
        run:  echo "::set-output name=tag_name::$(pwsh -ExecutionPolicy ByPass -File get-tag.ps1)"
+     
+     - name: Checkout Code
+       if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
+       uses: actions/checkout@v2
+       
+     - name: Clone PortableApps.comInstaller
+       if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
+       uses: actions/checkout@v2
+       with:
+        repository: uroesch/PortableApps.comInstaller
+        ref: master
+        path: PortableApps.comInstaller
+
+     - name: Clone PortableApps.comLauncher
+       if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
+       uses: actions/checkout@v2
+       with:
+          repository: uroesch/PortableApps.comLauncher
+          ref: patched
+          path: PortableApps.comLauncher
+
+     - name: Run build script Build.ps1
+       if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
+       run: pwsh -ExecutionPolicy ByPass -File Build.ps1
+       timeout-minutes: 10
      
      - name: Create Tag using upstream Tag
        if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
