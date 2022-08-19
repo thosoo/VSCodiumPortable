@@ -45,7 +45,7 @@ jobs:
        if: ${{ steps.local-tag.outputs.tag_name }} != ${{ steps.upstream-tag.outputs.tag_name }}
        uses: actions/github-script@v3
        env:
-          TAG: ${{ steps.set-tag.outputs.tag_name }}
+          TAG: ${{ steps.upstream-tag.outputs.tag_name }}
        with:
           github-token: ${{ github.token }}
           script: |
@@ -61,5 +61,6 @@ jobs:
        uses: ncipollo/release-action@v1
        with:
         artifacts: '*.paf.exe'
-        tag: ${{ steps.set-tag.outputs.tag_name }}
+        tag: ${{ steps.upstream-tag.outputs.tag_name }}
         token: ${{ secrets.GITHUB_TOKEN }}
+        
