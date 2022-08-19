@@ -12,6 +12,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+     - name: Checkout Code
+       uses: actions/checkout@v2
+       
      - name: Get current upstream Tag
        id: upstream-tag
        run:  echo "::set-output name=tag_name::$(pwsh -ExecutionPolicy ByPass -File get-sourcetag.ps1)"
@@ -19,10 +22,6 @@ jobs:
      - name: Get current local Tag
        id: local-tag
        run:  echo "::set-output name=tag_name::$(pwsh -ExecutionPolicy ByPass -File get-tag.ps1)"
-     
-     - name: Checkout Code
-       if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
-       uses: actions/checkout@v2
        
      - name: Clone PortableApps.comInstaller
        if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
