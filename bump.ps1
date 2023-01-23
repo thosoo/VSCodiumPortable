@@ -10,6 +10,7 @@ try { $tag = (Invoke-WebRequest $releasesUri | ConvertFrom-Json).tag_name }
 catch {
   Write-Host "Error while pulling API."
   echo "SHOULD_COMMIT=no" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
+  break
 }
 
 echo "UPSTREAM_TAG=$tag" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
