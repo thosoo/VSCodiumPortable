@@ -1,4 +1,4 @@
 $repoName = "VSCodium/vscodium"
 $releasesUri = "https://api.github.com/repos/$repoName/releases/latest"
-$tag = (Invoke-WebRequest $releasesUri | ConvertFrom-Json).tag_name
-echo $tag
+$tag = (Invoke-RestMethod -Uri $releasesUri).tag_name
+echo $tag 
