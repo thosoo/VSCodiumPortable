@@ -1,6 +1,13 @@
-dir
+Get-ChildItem
+
 Write-Host "Starting Launcher Generator"
-Start-Process "D:\a\VSCodiumPortable\VSCodiumPortable\PortableApps.comLauncher\PortableApps.comLauncherGenerator.exe" -ArgumentList "D:\a\VSCodiumPortable\VSCodiumPortable\VSCodiumPortable" -NoNewWindow -Wait
+$launcherPath = "D:\a\VSCodiumPortable\VSCodiumPortable\PortableApps.comLauncher\PortableApps.comLauncherGenerator.exe"
+$launcherArgs = "D:\a\VSCodiumPortable\VSCodiumPortable\VSCodiumPortable"
+Start-Process -FilePath $launcherPath -ArgumentList $launcherArgs -NoNewWindow -Wait
+
 Write-Host "Starting Installer Generator"
-Start-Process "D:\a\VSCodiumPortable\VSCodiumPortable\PortableApps.comInstaller\PortableApps.comInstaller.exe" -ArgumentList "D:\a\VSCodiumPortable\VSCodiumPortable\VSCodiumPortable" -NoNewWindow -Wait
-dir
+$installerPath = "D:\a\VSCodiumPortable\VSCodiumPortable\PortableApps.comInstaller\PortableApps.comInstaller.exe"
+$installerArgs = "D:\a\VSCodiumPortable\VSCodiumPortable\VSCodiumPortable"
+Start-Process -FilePath $installerPath -ArgumentList $installerArgs -NoNewWindow -Wait
+
+Get-ChildItem
