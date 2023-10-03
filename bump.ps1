@@ -27,7 +27,7 @@ if ((Test-Path $appinfoFilePath) -and (Get-IniContent $appinfoFilePath).Version.
             PackageVersion = "$tag.0"
         }
     }
-    Out-IniFile $appinfo -Force -Encoding ASCII -Pretty -FilePath $appinfoFilePath
+    Out-IniFile -InputObject $appinfo -Force -Encoding ASCII -Pretty -FilePath $appinfoFilePath
 
     $installerFilePath = ".\VSCodiumPortable\App\AppInfo\installer.ini"
     if (Test-Path $installerFilePath) {
@@ -43,7 +43,7 @@ if ((Test-Path $appinfoFilePath) -and (Get-IniContent $appinfoFilePath).Version.
                 Download2Filename = $download2Filename
             }
         }
-        Out-IniFile $installer -Force -Encoding ASCII -Pretty -FilePath $installerFilePath
+        Out-IniFile -InputObject $installer -Force -Encoding ASCII -Pretty -FilePath $installerFilePath
         Write-Host "Bumped to $tag"
         Write-Output "SHOULD_COMMIT=yes" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
     }
