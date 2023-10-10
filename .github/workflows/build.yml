@@ -13,7 +13,7 @@ jobs:
 
     steps:
      - name: Checkout Code
-       uses: actions/checkout@v3
+       uses: actions/checkout@v4
        
      - name: Get current upstream Tag
        id: upstream-tag
@@ -25,7 +25,7 @@ jobs:
        
      - name: Clone PortableApps.comInstaller
        if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
-       uses: actions/checkout@v3
+       uses: actions/checkout@v4
        with:
         repository: uroesch/PortableApps.comInstaller
         ref: main
@@ -33,7 +33,7 @@ jobs:
 
      - name: Clone PortableApps.comLauncher
        if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
-       uses: actions/checkout@v3
+       uses: actions/checkout@v4
        with:
           repository: uroesch/PortableApps.comLauncher
           ref: patched
@@ -42,17 +42,17 @@ jobs:
      - name: Run build script Build.ps1
        if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
        run: pwsh -ExecutionPolicy ByPass -File Build.ps1
-       timeout-minutes: 10
+       timeout-minutes: 20
      
      - name: Create Tag using upstream Tag
        if: ${{ steps.local-tag.outputs.tag_name != steps.upstream-tag.outputs.tag_name }}
-       uses: actions/github-script@v3
+       uses: actions/github-script@v6
        env:
           TAG: ${{ steps.upstream-tag.outputs.tag_name }}
        with:
           github-token: ${{ github.token }}
           script: |
-            github.git.createRef({
+            github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: "refs/tags/${{ steps.upstream-tag.outputs.tag_name }}",
